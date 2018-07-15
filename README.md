@@ -3,14 +3,25 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+[//]: # (Image References)
+[img1]: ./img/pid.png
+
 ## Project Summary
+This is my submission for Udacity self-driving Nanodegree PID controller project. A PID controller is implemented and tuned to drive a self-driving car around a lake track. The tuned controller can drive the car to follow the road center reasonably well without oscillating around. 
 
 ### Effect of P, I, and D terms
+PID controller is a simple yet effect controller to control dynamical systems. With much knowledge of the model, we can quickly design and implement a PID controller for self driving car. The P terms is directly proportionally to the cross-track-error (CTE), so it is the most important term to correct the tracking error. Large P term corresponds to quick reaction to the CTE, but also lead overshoot. The D term on the other hand can use the derivative of the CTE to predict the changes in CTE, and mitigate the overshoot of the controller. When there is a constant bias in the system (but inaccurate model, or the disturbance), it can be addressed by the I term, which integrates the error and eliminates the drift.
+
 
 ### Hyper Parameter Tuning
+The hyper parameters for this project are tuned manually. Although other auto-tuning method like twiddle and SGD can be used, I found manually tuning to be easy and effective. I started by setting I and D terms to zero. The P term is adjusted such that the car can stay on road, and oscillations are expected and allowed in this early stage. With an appropriate P term, I started increase the gain such that the overshoot behavior is gradually eliminated. With the approriate P and D gains, the car already follow the lane center pretty well. But understeering is observed at the high curvature part of the road. A small I term is then added to make the behavior at the turns work better. The tuned final PID gains I use are:
+```
+P gain: 0.15; I gain: 5e-3; D gain 3.
+```
+As evidenced by the final video, the tuned PID controller can drive the car to follow lane center very well without much oscillation.
 
-### Final Video
-[![mpc_video][img2]](https://www.youtube.com/watch?v=SYYWxPRTjLM)
+### Final video (click on the image to view the youtube video)
+[![pid_video][img1]](https://youtu.be/remtNaEYCFU)
 
 ## Dependencies
 

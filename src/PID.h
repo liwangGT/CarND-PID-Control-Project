@@ -18,6 +18,20 @@ public:
   double Kd;
 
   /*
+  * previous cte value
+  */
+  double cte_prev;
+
+
+  /*
+  * integral term limit
+  */
+  double i_MAX;
+  double i_MIN;
+  double control_MAX;
+  double control_MIN;
+
+  /*
   * Constructor
   */
   PID();

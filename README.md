@@ -3,6 +3,15 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+## Project Summary
+
+### Effect of P, I, and D terms
+
+### Hyper Parameter Tuning
+
+### Final Video
+[![mpc_video][img2]](https://www.youtube.com/watch?v=SYYWxPRTjLM)
+
 ## Dependencies
 
 * cmake >= 3.5
